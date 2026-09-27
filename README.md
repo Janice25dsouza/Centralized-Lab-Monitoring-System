@@ -147,7 +147,6 @@ Activity information returned to server
 | **Frontend**          | React, Vite, JavaScript, CSS             |
 | **Client**            | Python, Windows APIs, Process Monitoring |
 | **Communication**     | WebSockets / HTTP                        |
-| **Version Control**   | Git, GitHub                              |
 
 ---
 
