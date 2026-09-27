@@ -2,7 +2,7 @@
 
 A centralized monitoring and management system designed for computer laboratories. The system enables an administrator to monitor connected client PCs, configure permitted applications, detect restricted application usage, manage client systems, and view activity through a centralized web dashboard.
 
-##  Overview
+## Overview
 
 Managing a computer laboratory with multiple systems can make it difficult for administrators to monitor activity and manage individual machines efficiently.
 
@@ -21,16 +21,22 @@ The current implementation operates over a **local network**, making it suitable
 
 ---
 
-##  Key Features
+## Dashboard Preview
 
-###  Centralized Client Monitoring
+![Lab Monitoring Dashboard](screenshots/image.png)
+
+---
+
+## Key Features
+
+### Centralized Client Monitoring
 
 * Registers client PCs with the central server
 * Maintains information about connected systems
 * Monitors processes running on client machines
 * Detects applications that are not permitted by the configured lab rules
 
-###  Application Rule Management
+### Application Rule Management
 
 Administrators can configure applications that are permitted for laboratory activities.
 
@@ -47,25 +53,25 @@ Allowed Applications
 
 When a restricted application is detected, the activity can be recorded for monitoring and reporting.
 
-###  Centralized System Control
+### Centralized System Control
 
 The administrator can send commands to client machines through the dashboard.
 
 Supported commands include:
 
-*  Lock
-*  Unlock
-*  Shutdown
+* Lock
+* Unlock
+* Shutdown
 
 The system also supports centralized actions across multiple connected client machines.
 
-###  Automatic Server Discovery
+### Automatic Server Discovery
 
 The system uses **Zeroconf** to allow clients to discover the server automatically on the local network.
 
 This removes the need to manually configure the server IP address on every client machine.
 
-###  Web Dashboard
+### Web Dashboard
 
 The React-based dashboard provides an interface for:
 
@@ -75,23 +81,23 @@ The React-based dashboard provides an interface for:
 * Managing client machines
 * Viewing activity and reports
 
-###  Activity & Reporting
+### Activity & Reporting
 
 The system records relevant activity information that can be used to generate reports and summaries of laboratory usage.
 
 ---
 
-##  System Architecture
+## System Architecture
 
 ```text
                          ┌─────────────────────────┐
-                         │      Admin / Server     │
-                         │          PC             │
+                         │      Admin / Server      │
+                         │           PC            │
                          │                         │
                          │     FastAPI Server      │
                          │           │             │
                          │           │             │
-                         │    React Dashboard      │
+                         │     React Dashboard     │
                          └───────────┬─────────────┘
                                      │
                               Local Network
@@ -132,7 +138,7 @@ Activity information returned to server
 
 ---
 
-##  Technology Stack
+## Technology Stack
 
 | Component             | Technologies                             |
 | --------------------- | ---------------------------------------- |
@@ -145,45 +151,7 @@ Activity information returned to server
 
 ---
 
-##  Project Structure
-
-```text
-Centralized-Lab-Monitoring-System/
-│
-├── client/
-│   ├── clienttt.py
-│   ├── rules.json
-│   ├── requirements.txt
-│   ├── test_discovery.py
-│   └── README.md
-│
-├── server/
-│   ├── server/
-│   │   ├── api/
-│   │   │   ├── clients.py
-│   │   │   ├── commands.py
-│   │   │   ├── lab_config.py
-│   │   │   ├── logs.py
-│   │   │   ├── reports.py
-│   │   │   └── sessions.py
-│   │   │
-│   │   ├── database/
-│   │   ├── services/
-│   │   ├── discovery.py
-│   │   ├── main.py
-│   │   └── requirements.txt
-│   │
-│   ├── dashboard/
-│   │   └── ...
-│   │
-│   └── README.md
-│
-└── .gitignore
-```
-
----
-
-##  How the System Works
+## How the System Works
 
 1. The administrator starts the central server.
 2. The server becomes discoverable on the local network using Zeroconf.
@@ -196,9 +164,10 @@ Centralized-Lab-Monitoring-System/
 9. Restricted application usage can be detected.
 10. Administrators can send commands to individual or multiple client machines.
 11. Activity information is recorded and made available for reporting.
+
 ---
 
-##  Setup
+## Setup
 
 Detailed setup instructions are provided separately for each component:
 
@@ -207,7 +176,7 @@ Detailed setup instructions are provided separately for each component:
 
 ---
 
-##  Current Scope
+## Current Scope
 
 The current version focuses on **local-network laboratory monitoring and centralized management**.
 
@@ -224,7 +193,7 @@ The implemented system includes:
 
 ---
 
-##  Future Scope
+## Future Scope
 
 Potential future enhancements include:
 
@@ -239,7 +208,7 @@ Potential future enhancements include:
 
 ---
 
-##  Academic Project
+## Academic Project
 
 **Centralized Lab Monitoring System**
 
