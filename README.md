@@ -91,7 +91,7 @@ The system records relevant activity information that can be used to generate re
 
 ```text
                          ┌─────────────────────────┐
-                         │      Admin / Server      │
+                         │      Admin / Server     │
                          │           PC            │
                          │                         │
                          │     FastAPI Server      │
