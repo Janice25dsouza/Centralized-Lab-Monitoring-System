@@ -1,0 +1,31 @@
+{
+  "allowed_apps": [
+    "python",
+    "vs code",
+    "visual studio code",
+    "code",
+    "pycharm",
+    "sublime",
+    "terminal",
+    "iterm",
+    "cmd.exe",
+    "powershell",
+    "desktop",
+    "finder",
+    "explorer",
+    "system settings",
+    "system preferences",
+    "calculator"
+  ],
+  "allowed_keywords": [
+    "gmail",
+    "python",
+    "code",
+    "terminal",
+    "project",
+    "major-project",
+    "calculator",
+    "notes",
+    "clienttt.py"
+  ]
+}

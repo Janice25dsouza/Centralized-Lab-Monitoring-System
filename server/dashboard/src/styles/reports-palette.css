@@ -1,0 +1,341 @@
+/* ============================================================
+   Reports - palette (same palette as Dashboard)
+
+   #1A1E2F  deep navy   (page background)
+   #242F49  navy        (card surface)
+   #384358  slate       (borders / secondary)
+   #FFA586  peach       (positive accent)
+   #B51A2B  red         (alert / destructive)
+   #561A2B  maroon      (alert surface)
+
+   IMPORTANT - ISOLATION:
+   Every rule in this file is scoped under ".reports-container"
+   and every variable lives on ".reports-container" (NOT :root),
+   so importing this stylesheet cannot restyle the Dashboard
+   or any other page. All class names are 
+   prefixed and unique to this page.
+   ============================================================ */
+
+.reports-container {
+    --lab-deep: #1A1E2F;
+    --lab-navy: #242F49;
+    --lab-slate: #384358;
+    --lab-peach: #FFA586;
+    --lab-red: #B51A2B;
+    --lab-maroon: #561A2B;
+    --lab-text: #E8ECF4;
+    --lab-text-bright: #F4F6FA;
+    --lab-text-dim: #9AA6BC;
+
+    min-height: 100vh;
+    width: 100%;
+    max-width: none;
+    background:
+        radial-gradient(120% 80% at 50% -10%, rgba(255, 165, 134, 0.06), transparent 60%),
+        var(--lab-deep);
+    color: var(--lab-text);
+    padding: 32px clamp(20px, 3vw, 48px);
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.reports-container *,
+.reports-container *::before,
+.reports-container *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- Header ---------- */
+.reports-container .reports-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+}
+
+.reports-container .reports-title {
+    margin: 0;
+    font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--lab-text-bright);
+    line-height: 1.2;
+}
+
+.reports-container .reports-subtitle {
+    margin: 6px 0 0;
+    font-size: 0.88rem;
+    color: var(--lab-text-dim);
+    line-height: 1.4;
+}
+
+/* ---------- Cards ---------- */
+.reports-container .rep-card {
+    background: var(--lab-navy);
+    border: 1px solid var(--lab-slate);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(15, 20, 36, 0.35);
+    margin-top: 20px;
+}
+
+.reports-container .rep-card-title {
+    margin: 0 0 14px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--lab-text-bright);
+}
+
+/* ---------- Error banner ---------- */
+.reports-container .rep-alert {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(181, 26, 43, 0.55);
+    background: rgba(86, 26, 43, 0.55);
+    color: #FBD9DD;
+    font-size: 0.86rem;
+    line-height: 1.45;
+}
+
+/* ---------- Session selector form ---------- */
+.reports-container .rep-form-group {
+    margin: 0;
+}
+
+.reports-container .rep-form-group label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--lab-text-dim);
+    margin-bottom: 8px;
+}
+
+.reports-container .rep-select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--lab-slate);
+    background: var(--lab-deep);
+    color: var(--lab-text-bright);
+    font-family: inherit;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reports-container .rep-select:focus {
+    outline: none;
+    border-color: var(--lab-peach);
+    box-shadow: 0 0 0 3px rgba(255, 165, 134, 0.18);
+}
+
+.reports-container .rep-select option {
+    background: var(--lab-deep);
+    color: var(--lab-text-bright);
+}
+
+/* ---------- Session information meta grid ---------- */
+.reports-container .rep-session-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+}
+
+.reports-container .rep-meta-item {
+    padding: 12px 14px;
+    border: 1px solid var(--lab-slate);
+    border-radius: 10px;
+    background: rgba(26, 30, 47, 0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.reports-container .rep-meta-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lab-text-dim);
+}
+
+.reports-container .rep-meta-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--lab-text-bright);
+    word-break: break-word;
+}
+
+.reports-container .rep-meta-value strong {
+    color: var(--lab-peach);
+    font-weight: 700;
+}
+
+/* ---------- Summary stat cards ---------- */
+.reports-container .rep-summary-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+@media (max-width: 560px) {
+    .reports-container .rep-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reports-container .rep-stat {
+    background: var(--lab-navy);
+    border: 1px solid var(--lab-slate);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 6px 18px rgba(15, 20, 36, 0.35);
+}
+
+.reports-container .rep-stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lab-text-dim);
+}
+
+.reports-container .rep-stat-value {
+    margin-top: 6px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--lab-text-bright);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.reports-container .rep-stat-value[data-state="warn"] {
+    color: #F8848E;
+}
+
+/* ---------- Export buttons ---------- */
+.reports-container .rep-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.reports-container .rep-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease,
+                color 0.15s ease;
+}
+
+.reports-container .rep-btn:focus-visible {
+    outline: 2px solid var(--lab-peach);
+    outline-offset: 2px;
+}
+
+.reports-container .rep-btn-outline {
+    background: transparent;
+    border-color: rgba(255, 165, 134, 0.85);
+    color: var(--lab-peach);
+}
+
+.reports-container .rep-btn-outline:hover {
+    background: rgba(255, 165, 134, 0.12);
+    border-color: var(--lab-peach);
+    color: #FFC2AD;
+}
+
+/* ---------- Tables ---------- */
+.reports-container .rep-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--lab-slate);
+    border-radius: 10px;
+    background: rgba(26, 30, 47, 0.55);
+}
+
+.reports-container .rep-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+}
+
+.reports-container .rep-table th {
+    text-align: left;
+    padding: 11px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lab-text-dim);
+    background: rgba(56, 67, 88, 0.35);
+    border-bottom: 1px solid var(--lab-slate);
+    white-space: nowrap;
+}
+
+.reports-container .rep-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(56, 67, 88, 0.5);
+    color: var(--lab-text);
+    vertical-align: top;
+}
+
+.reports-container .rep-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.reports-container .rep-table tbody tr:hover td {
+    background: rgba(255, 165, 134, 0.05);
+}
+
+/* Second column (counts) rendered as peach numerals */
+.reports-container .rep-table td:nth-child(2) {
+    color: var(--lab-peach);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Empty / placeholder states ---------- */
+.reports-container .rep-empty {
+    margin-top: 20px;
+    padding: 26px 20px;
+    border: 1px dashed var(--lab-slate);
+    border-radius: 12px;
+    font-size: 0.88rem;
+    color: var(--lab-text-dim);
+    text-align: center;
+    background: rgba(36, 47, 73, 0.4);
+    line-height: 1.5;
+}
+
+.reports-container .rep-empty h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--lab-text-bright);
+}
+
+.reports-container .rep-empty p {
+    margin: 0;
+}
+
+.reports-container .rep-none {
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--lab-text-dim);
+}
